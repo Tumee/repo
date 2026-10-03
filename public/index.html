@@ -4,52 +4,160 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Бяцхан Дэлгүүр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <header class="topbar">
-    <a class="logo" href="/">🧸 Бяцхан Дэлгүүр</a>
-    <input id="search" type="search" placeholder="Бараа хайх…">
-    <button id="trackBtn" class="ghost">Захиалга шалгах</button>
-    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+<body class="store">
+  <div class="announce">Taobao, Pinduoduo-оос шүүж авчирсан хүүхдийн бараа · Хүргэлт ихэвчлэн 7–14 хоног</div>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="17" r="13" fill="currentColor" class="brand-ball"/><circle cx="15" cy="12" r="4" fill="#fff" opacity=".6"/><path d="M20 30v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Бяцхан Дэлгүүр</span>
+      </a>
+      <form class="search" role="search" onsubmit="return false">
+        <label for="search" class="sr">Бараа хайх</label>
+        <input id="search" type="search" placeholder="Тоглоом, хувцас, ном…" autocomplete="off">
+        <span class="search-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
+      </form>
+      <div class="header-actions">
+        <button id="trackBtn" type="button" class="icon-btn with-label">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+          <span>Захиалга шалгах</span>
+        </button>
+        <button id="cartBtn" type="button" class="icon-btn cart-btn" aria-label="Сагс">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.5 12h-11z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+          <span id="cartCount" class="badge-count">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="wrap main-nav" aria-label="Үндсэн цэс">
+      <a href="#ages">Насаар</a>
+      <a href="#cats">Ангиллууд</a>
+      <a href="#shop">Бүх бараа</a>
+      <a href="#why">Яагаад бид</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Хятадаас шилдэг хүүхдийн бараа</h1>
-    <p>Taobao, Pinduoduo-оос <b>олон мянгаар зарагдсан</b>, <b>эцэг эхчүүдийн өндөр үнэлгээ авсан</b> барааг л шүүж авчирдаг.</p>
-  </section>
+  <main>
+    <section class="wrap hero">
+      <div class="hero-text">
+        <span class="pill pill-sun">Шалгуураар шүүсэн бараа</span>
+        <h1>Хятадаас шилдэг хүүхдийн бараа</h1>
+        <p>Taobao, Pinduoduo-оос <b>олон мянгаар зарагдсан</b>, <b>эцэг эхчүүдийн өндөр үнэлгээ авсан</b> барааг л шүүж авчирдаг.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#shop">Бараа үзэх</a>
+          <button type="button" class="btn btn-outline" data-open-track>Захиалга шалгах</button>
+        </div>
+      </div>
+      <div class="hero-visual" id="heroVisual" aria-hidden="true"></div>
+    </section>
 
-  <section class="filters">
-    <div id="categories" class="chips"></div>
-    <label>Нас:
-      <select id="age">
-        <option value="">Бүгд</option>
-        <option value="3">0–6 сар</option>
-        <option value="9">6–12 сар</option>
-        <option value="18">1–2 нас</option>
-        <option value="30">2–3 нас</option>
-        <option value="48">3–5 нас</option>
-        <option value="84">5–8 нас</option>
-        <option value="120">8+ нас</option>
-      </select>
-    </label>
-    <label>Эрэмбэ:
-      <select id="sort">
-        <option value="">Санал болгох</option>
-        <option value="popular">Их зарагдсан</option>
-        <option value="price">Үнэ өсөхөөр</option>
-        <option value="new">Шинэ</option>
-      </select>
-    </label>
-  </section>
+    <section class="wrap section" id="ages" aria-labelledby="ages-h">
+      <h2 id="ages-h">Насаар нь сонгох</h2>
+      <div class="age-grid">
+        <button type="button" class="age-tile tint-peach" data-age="6"><b>0–1</b><span>Нярай</span></button>
+        <button type="button" class="age-tile tint-mint" data-age="24"><b>1–3</b><span>Балчир</span></button>
+        <button type="button" class="age-tile tint-sky" data-age="54"><b>3–6</b><span>Цэцэрлэг</span></button>
+        <button type="button" class="age-tile tint-lilac" data-age="108"><b>6–12</b><span>Сургууль</span></button>
+      </div>
+    </section>
 
-  <main id="grid" class="grid"></main>
+    <section class="wrap section" id="cats" aria-labelledby="cats-h">
+      <div class="section-head">
+        <h2 id="cats-h">Ангиллууд</h2>
+        <a href="#shop" data-cat-link="">Бүгдийг үзэх</a>
+      </div>
+      <div id="catTiles" class="cat-grid"></div>
+    </section>
+
+    <section class="shop-band" id="shop" aria-labelledby="shop-h">
+      <div class="wrap section">
+        <div class="section-head">
+          <h2 id="shop-h">Бүх бараа</h2>
+          <span id="resultCount" class="muted"></span>
+        </div>
+        <div class="filters">
+          <div id="categories" class="chips" role="group" aria-label="Ангилал"></div>
+          <div class="selects">
+            <label>Нас
+              <select id="age">
+                <option value="">Бүгд</option>
+                <option value="6">0–1 нас</option>
+                <option value="24">1–3 нас</option>
+                <option value="54">3–6 нас</option>
+                <option value="108">6–12 нас</option>
+              </select>
+            </label>
+            <label>Эрэмбэ
+              <select id="sort">
+                <option value="">Санал болгох</option>
+                <option value="popular">Их зарагдсан</option>
+                <option value="price">Үнэ өсөхөөр</option>
+                <option value="new">Шинэ</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div id="grid" class="grid"></div>
+      </div>
+    </section>
+
+    <section class="wrap section promos">
+      <div class="promo promo-sun">
+        <div>
+          <h2>Сэтгэн бодох тоглоом</h2>
+          <p>Модон шоо, пазл, барилгын тоглоом — хүүхдийн хөгжилд тустай сонголтууд.</p>
+        </div>
+        <button type="button" class="btn btn-dark" data-cat="toys">Тоглоом үзэх</button>
+      </div>
+      <div class="promo promo-accent">
+        <div>
+          <h2>Нярайн арчилгаа</h2>
+          <p>Зөөлөн хөвөн, аюулгүй материалтай өдөр тутмын хэрэгцээт зүйлс.</p>
+        </div>
+        <button type="button" class="btn btn-light" data-cat="baby-care">Сонгох</button>
+      </div>
+    </section>
+
+    <section class="wrap section" id="why" aria-label="Давуу талууд">
+      <div class="perks">
+        <div class="perk"><span class="perk-icon tint-sky"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Шүүсэн сонголт</b><span>Зөвхөн олон зарагдсан, өндөр үнэлгээтэй бараа</span></div></div>
+        <div class="perk"><span class="perk-icon tint-peach"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div><b>Тээвэр багтсан үнэ</b><span>Хятадаас УБ хүртэл, ихэвчлэн 7–14 хоног</span></div></div>
+        <div class="perk"><span class="perk-icon tint-mint"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>Хялбар төлбөр</b><span>QPay эсвэл дансаар шилжүүлэх</span></div></div>
+        <div class="perk"><span class="perk-icon tint-lilac"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><div><b>Захиалгаа хянах</b><span>Код, утсаараа төлвөө хүссэн үедээ шалгана</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <span class="footer-brand">Бяцхан Дэлгүүр</span>
+        <p>Хятадаас шилдэг хүүхдийн барааг шүүж, Монголд төгрөгөөр.</p>
+      </div>
+      <nav aria-label="Дэлгүүр">
+        <b>Дэлгүүр</b>
+        <a href="#ages">Насаар</a>
+        <a href="#cats">Ангиллууд</a>
+        <a href="#shop">Бүх бараа</a>
+      </nav>
+      <nav aria-label="Тусламж">
+        <b>Тусламж</b>
+        <button type="button" class="link-btn" data-open-track>Захиалга шалгах</button>
+        <a href="#why">Хүргэлт ба төлбөр</a>
+      </nav>
+    </div>
+    <div class="wrap footer-note">Захиалга Хятадаас ирэхэд ихэвчлэн 7–14 хоног шаардлагатай.</div>
+  </footer>
 
   <dialog id="productDlg"></dialog>
   <dialog id="cartDlg"></dialog>
   <dialog id="trackDlg"></dialog>
 
-  <footer>Захиалга Хятадаас ирэхэд ихэвчлэн 7–14 хоног шаардлагатай.</footer>
   <script type="module" src="/app.js"></script>
 </body>
 </html>
