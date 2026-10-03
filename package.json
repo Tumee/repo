@@ -1,0 +1,17 @@
+{
+  "name": "huuhdiin-delguur",
+  "version": "0.1.0",
+  "description": "Taobao / Pinduoduo-оос хүүхдийн бараа сонгон шүүж, Монголд зардаг web app",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js",
+    "import": "node --disable-warning=ExperimentalWarning src/cli-import.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

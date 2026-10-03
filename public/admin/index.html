@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дэлгүүрийн удирдлага</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="/">🧸 Удирдлага</a>
+    <span style="flex:1"></span>
+    <input id="token" type="password" placeholder="ADMIN_TOKEN" style="max-width:200px">
+  </header>
+  <div class="admin">
+    <nav class="tabs">
+      <button data-tab="products" class="active">Бараа</button>
+      <button data-tab="criteria">Шалгуур ба амт</button>
+      <button data-tab="orders">Захиалга</button>
+      <button data-tab="purchase">Хятадаас авах жагсаалт</button>
+    </nav>
+    <main id="view"></main>
+  </div>
+  <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>

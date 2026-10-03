@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бяцхан Дэлгүүр</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="/">🧸 Бяцхан Дэлгүүр</a>
+    <input id="search" type="search" placeholder="Бараа хайх…">
+    <button id="trackBtn" class="ghost">Захиалга шалгах</button>
+    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+  </header>
+
+  <section class="hero">
+    <h1>Хятадаас шилдэг хүүхдийн бараа</h1>
+    <p>Taobao, Pinduoduo-оос <b>олон мянгаар зарагдсан</b>, <b>эцэг эхчүүдийн өндөр үнэлгээ авсан</b> барааг л шүүж авчирдаг.</p>
+  </section>
+
+  <section class="filters">
+    <div id="categories" class="chips"></div>
+    <label>Нас:
+      <select id="age">
+        <option value="">Бүгд</option>
+        <option value="3">0–6 сар</option>
+        <option value="9">6–12 сар</option>
+        <option value="18">1–2 нас</option>
+        <option value="30">2–3 нас</option>
+        <option value="48">3–5 нас</option>
+        <option value="84">5–8 нас</option>
+        <option value="120">8+ нас</option>
+      </select>
+    </label>
+    <label>Эрэмбэ:
+      <select id="sort">
+        <option value="">Санал болгох</option>
+        <option value="popular">Их зарагдсан</option>
+        <option value="price">Үнэ өсөхөөр</option>
+        <option value="new">Шинэ</option>
+      </select>
+    </label>
+  </section>
+
+  <main id="grid" class="grid"></main>
+
+  <dialog id="productDlg"></dialog>
+  <dialog id="cartDlg"></dialog>
+  <dialog id="trackDlg"></dialog>
+
+  <footer>Захиалга Хятадаас ирэхэд ихэвчлэн 7–14 хоног шаардлагатай.</footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
